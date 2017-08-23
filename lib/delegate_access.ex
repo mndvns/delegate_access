@@ -23,7 +23,7 @@ defmodule DelegateAccess do
   end
 
   defmacro __using__(opts) do
-    delegate = delegate_access(opts[:to])
+    delegate = delegate_access(opts[:to] || Map)
     only = Keyword.take(opts[:only] || @funs, @keys)
 
     quote do
