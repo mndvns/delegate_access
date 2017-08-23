@@ -23,11 +23,9 @@ defmodule MyModule do
   @behaviour Access
 
   defdelegate fetch(conf, key), to: Map
-  defdelegate get(conf, key), to: Map
   defdelegate get(conf, key, default), to: Map
   defdelegate get_and_update(conf, key, fun), to: Map
   defdelegate pop(conf, key), to: Map
-  defdelegate pop(conf, key, default), to: Map
 
   defoverridable [fetch: 2, get: 3, get_and_update: 3, pop: 2]
 end
