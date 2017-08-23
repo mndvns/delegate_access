@@ -1,6 +1,5 @@
 defmodule DelegateAccess do
   @funs [fetch: 2, get: 3, get_and_update: 3, pop: 2]
-  @keys Keyword.keys(@funs)
 
   defp delegate_access({:__aliases__, _, module_parts}) do
     delegate_access(Module.concat(module_parts))
@@ -24,7 +23,7 @@ defmodule DelegateAccess do
 
   defmacro __using__(opts) do
     delegate = delegate_access(opts[:to] || Map)
-    only = Keyword.take(opts[:only] || @funs, @keys)
+    only = opts[:only] || @funs
 
     quote do
       @behaviour Access

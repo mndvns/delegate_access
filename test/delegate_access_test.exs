@@ -10,7 +10,7 @@ defmodule Test.DelegateAccess do
   defmodule Bar do
     defstruct [:qux, :rar]
     use DelegateAccess, to: Map, only: [fetch: 2]
-    use DelegateAccess, to: Keyword, only: [get: 2, get: 3]
+    use DelegateAccess, to: Keyword, only: [get: 3, pop: 2, get_and_update: 3]
   end
 
   test "Foo" do

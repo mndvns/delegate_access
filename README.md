@@ -29,14 +29,7 @@ defmodule MyModule do
   defdelegate pop(conf, key), to: Map
   defdelegate pop(conf, key, default), to: Map
 
-  defoverridable [
-    fetch: 2,
-    get: 2,
-    get: 3,
-    get_and_update: 3,
-    pop: 2,
-    pop: 3,
-  ]
+  defoverridable [fetch: 2, get: 3, get_and_update: 3, pop: 2]
 end
 ```
 
@@ -47,7 +40,7 @@ defmodule MyModule do
   defstruct [:foo, :bar]
 
   use DelegateAccess, to: Map, only: [fetch: 2]
-  use DelegateAccess, to: Keyword, only: [get: 2, get: 3]
+  use DelegateAccess, to: Keyword, only: [get: 3]
 end
 ```
 
