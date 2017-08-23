@@ -42,7 +42,7 @@ end
 
 You can also mix and match.
 
-```
+```elixir
 defmodule MyModule do
   defstruct [:foo, :bar]
 
